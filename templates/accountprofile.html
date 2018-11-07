@@ -1,0 +1,11 @@
+{% extends "accountlayout.html" %}
+{% block content %}
+	<br><br>
+	<div>
+		<legend><b>Name:</b> {{ data[1] }}</legend>
+		<legend><b>Passenger ID:</b> {{ data[0] }}</legend>
+		<legend><b>Date of Birth:</b> {{ data[2] }}</legend>
+		<legend><b>Age:</b> {{ data[3] }}</legend>
+		<legend><b>Address:</b> {{ data[4] }}, {{ data[5] }}, {{ data[6] }} </legend>
+	</div>
+{% endblock content %}
