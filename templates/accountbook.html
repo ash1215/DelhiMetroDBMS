@@ -1,0 +1,35 @@
+{% extends 'accountlayout.html' %}
+{% block content %}
+
+	<h1>Welcome {{ data[1] }}</h1>
+
+	<form method="POST" action="{{ url_for('accountbook',passengerID=pID) }}">
+		<div class="form-group">
+		  <label for="sel1">Select source:</label>
+		  <select class="form-control" name="stat_select" id="sel1">
+		  	{% for stat in sta_data %}
+		  		<option value=" {{ stat[0] }} ">{{ stat[1] }}</option>
+		  	{% endfor %}
+		  </select><br>
+		  <label for="sel2">Select destination:</label>
+		  <select class="form-control" name="stat_select2" id="sel2">
+		  	{% for stat in sta_data %}
+		  		<option value=" {{ stat[0] }} ">{{ stat[1] }}</option>
+		  	{% endfor %}
+		  </select>
+		</div>
+		<div class="form-group">
+		  <button type="submit" class="btn btn-default">Search Station</button>
+		</div>
+	</form>
+
+	{% if x==1 %}
+		<form method="POST" action="{{ url_for('wallet', passengerID=pID, price=price) }}">
+			<div class="form-group">
+				<legend>Ticket Price = {{ price }}</legend><br>
+				<a href="{{ url_for('wallet',passengerID=pID) }}"><legend>Go to Wallet</legend></a>
+			</div>
+		</form>
+	{% endif %}
+
+{% endblock content %}

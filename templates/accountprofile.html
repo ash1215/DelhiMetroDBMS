@@ -1,11 +1,17 @@
 {% extends "accountlayout.html" %}
 {% block content %}
-	<br><br>
-	<div>
-		<legend><b>Name:</b> {{ data[1] }}</legend>
-		<legend><b>Passenger ID:</b> {{ data[0] }}</legend>
-		<legend><b>Date of Birth:</b> {{ data[2] }}</legend>
-		<legend><b>Age:</b> {{ data[3] }}</legend>
-		<legend><b>Address:</b> {{ data[4] }}, {{ data[5] }}, {{ data[6] }} </legend>
-	</div>
+	<form method="POST" action="{{ url_for('accountchange',passengerID=pID) }}">
+		<div class="content-section">
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">{{ data[1] }}</legend>
+				<label class="form-control-label">Passenger ID: {{ data[0] }}</label><br>
+				<label class="form-control-label">Date of Birth: {{ data[2] }}</label><br>
+				<label class="form-control-label">Age: {{ data[3] }}</label><br>
+				<label class="form-control-label">Address: {{ data[4] }}, {{ data[5] }}, {{ data[6] }} </label>
+			</fieldset>
+			<div class="form-group">
+				<input class="btn btn-outline-info" id="submit" name="submit" type="submit" value="Edit Profile">
+			</div>
+		</div>
+	</form>
 {% endblock content %}

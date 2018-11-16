@@ -28,13 +28,13 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="navbarToggle">
 	        <div class="navbar-nav mr-auto">
-	          <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+	          <a class="nav-item nav-link" href="{{ url_for('adminhome', adminID=adminID) }}">Home</a>
 	          <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+	          <a class="nav-item nav-link" href="{{ url_for('notify', adminID=adminID) }}">Notifications</a>
 	        </div>
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav">
-	          <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-	          <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+	          <a class="nav-item nav-link" href="{{ url_for('login') }}">Logout</a>
 	        </div>
 	      </div>
 	    </div>
@@ -43,7 +43,7 @@
 
 	<main role="main" class="container">
 	  <div class="row">
-	    <div class="col-md-8">
+	    <div class="col-md-12">
 	    	{% with messages = get_flashed_messages(with_categories=true) %}
 	    		{% if messages %}
 	    			{% for category, message in messages %}
@@ -55,18 +55,7 @@
 	    	{% endwith %}
 	        {% block content %}{% endblock %}
 	    </div>
-	    <div class="col-md-4">
-	      <div class="content-section" style="overflow-y: scroll; height: 500px;">
-	        <h3>Notifications</h3>
-	        <p class='text-muted'>Look out for announcements and notifications from Delhi Metro Authority.
-	          <ul class="list-group">
-	          	{% for post in notification %}
-	          	<li class="list-group-item list-group-item-light">{{ post[1] }}</li>
-	          	{% endfor %}
-	          </ul>
-	        </p>
-	      </div>
-	    </div>
+	    
 	  </div>
 	</main>
 	<!-- Optional JavaScript -->
@@ -74,6 +63,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+{% block script %}{% endblock %}
 </body>
 </html>

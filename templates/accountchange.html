@@ -1,0 +1,40 @@
+{% extends "accountlayout.html" %}
+{% block content %}
+	<h1>Welcome {{ data[1] }}</h1>
+	<div class="content-section">
+		<form method="POST" action="{{ url_for('accountchange',passengerID=pID) }}">
+			<legend class="border-bottom mb-4"> Edit Profile Details</legend>
+			<div class="form-group">
+			  <label for="pname" class="form-control-label">Name:</label>
+				<input required type="text" class="form-control form-control-lg" id="pname" name="pname" value="{{ data[1] }}">
+			</div>
+			<div class="form-group">
+			  <label class="form-control-label">Date of Birth:</label>
+			  <div class="=form-group content-section">
+			  	<label class="form-control-label">Date:</label>
+				<input required type="text" class="form-control form-control-lg" name="date" id="date" value="{{ data[3] }}"><br>
+			  	<label class="form-control-label">Month:</label>
+				<input required type="text" class="form-control form-control-lg" name="month" value="{{ data[4] }}"><br>
+			  	<label class="form-control-label">Year:</label>
+				<input required type="text" class="form-control form-control-lg" name="year" value="{{ data[5] }}">
+			  </div>
+			  <label class="form-control-label">Address:</label>
+			  <div class="=form-group content-section">
+			  	<label class="form-control-label">House Number:</label>
+				<input type="text" class="form-control form-control-lg" name="house" value="{{ data[6] }}"><br>
+			  	<label class="form-control-label">Street:</label>
+				<input type="text" class="form-control form-control-lg" name="street" value="{{ data[7] }}"><br>
+			  	<label class="form-control-label">City:</label>
+				<input type="text" class="form-control form-control-lg" name="city" value="{{ data[8] }}"><br>
+				<label class="form-control-label">PINCODE:</label>
+				<input type="text" class="form-control form-control-lg" name="pin" value="{{ data[9] }}">
+			  </div>
+			</div>
+			<div class="form-group">
+			  <input class="btn btn-outline-info" id="submit" name="submit" type="submit" value="Save Changes">
+			</div>
+		</form>
+	</div>
+	<br>
+	
+{% endblock content %}

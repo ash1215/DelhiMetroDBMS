@@ -1,0 +1,86 @@
+{% extends "adminlayout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Add Station</legend>
+				<div class="form-group">
+					{{ form.Name.label(class="form-control-label") }}
+
+					{% if form.Name.errors %}
+						{{ form.Name(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.Name.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.Name(class="form-control form-control-lg") }}
+					{% endif %}
+
+					
+				</div>
+				<div class="form-group">
+					{{ form.ID.label(class="form-control-label") }}
+					{% if form.ID.errors %}
+						{{ form.ID(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.ID.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.ID(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+
+				<div class="form-group">
+					{{ form.Parking.label(class="form-control-label") }}
+					{% if form.Parking.errors %}
+						{{ form.Parking(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.Parking.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.Parking(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+
+				<div class="form-group">
+					{{ form.Feeder.label(class="form-control-label") }}
+					{% if form.Feeder.errors %}
+						{{ form.Feeder(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.Feeder.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.Feeder(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+
+				<div class="form-group">
+					{{ form.Distance.label(class="form-control-label") }}
+					{% if form.Distance.errors %}
+						{{ form.Distance(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.Distance.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.Distance(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+
+			</fieldset>
+			<div class="form-group">
+				{{ form.add(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	
+{% endblock content %}

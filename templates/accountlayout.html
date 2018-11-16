@@ -28,8 +28,11 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="navbarToggle">
 	        <div class="navbar-nav mr-auto">
-	          <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-	          <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+	          <a class="nav-item nav-link" href="{{ url_for('accounthome',passengerID=pID) }}">Home</a>
+	          <!--a class="nav-item nav-link" href="{{ url_for('about') }}">About</a-->
+	          <a class="nav-item nav-link" href="{{ url_for('accountstations', passengerID=pID) }}">Stations</a>
+	          <a class="nav-item nav-link" href="{{ url_for('accountbook', passengerID=pID) }}">Book Tickets</a>
+	          <a class="nav-item nav-link" href="{{ url_for('wallet', passengerID=pID) }}">Wallet</a>
 	        </div>
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav">
@@ -56,14 +59,13 @@
 	        {% block content %}{% endblock %}
 	    </div>
 	    <div class="col-md-4">
-	      <div class="content-section">
-	        <h3>Our Sidebar</h3>
-	        <p class='text-muted'>You can put any information here you'd like.
+	      <div class="content-section" style="overflow-y: scroll; height: 500px;">
+	        <h3>Notifications</h3>
+	        <p class='text-muted'>Look out for announcements and notifications from Delhi Metro Authority.
 	          <ul class="list-group">
-	            <li class="list-group-item list-group-item-light">Latest Posts</li>
-	            <li class="list-group-item list-group-item-light">Announcements</li>
-	            <li class="list-group-item list-group-item-light">Calendars</li>
-	            <li class="list-group-item list-group-item-light">etc</li>
+	          	{% for post in notification %}
+	          	<li class="list-group-item list-group-item-light">{{ post[1] }}</li>
+	          	{% endfor %}
 	          </ul>
 	        </p>
 	      </div>

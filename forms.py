@@ -20,3 +20,21 @@ class LoginForm(FlaskForm):
 	password = PasswordField('Password', validators=[DataRequired()])
 	remember = BooleanField('Remember Me')
 	submit = SubmitField('Login')
+
+class NotifyPosts(FlaskForm):
+	notify = StringField('Write the post', validators=[DataRequired(), Length(min=1, max=500)])
+	post = SubmitField('Post')
+
+class AdminLogin(FlaskForm):
+	adminID = StringField('Admin ID', validators=[DataRequired()])
+	password = PasswordField('Password', validators=[DataRequired()])
+	remember = BooleanField('Remember Me')
+	submit = SubmitField('Login')
+
+class StationForm(FlaskForm):
+	ID = StringField('Station ID', validators=[DataRequired()])
+	Name = StringField('Name', validators=[DataRequired()])
+	Parking = StringField('Parking Facility', validators=[DataRequired()])
+	Feeder = StringField('Feeder Bus Service', validators=[DataRequired()])
+	Distance = StringField('Distance From Rithala', validators=[DataRequired()])
+	add = SubmitField('Add Station')

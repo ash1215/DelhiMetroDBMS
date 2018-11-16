@@ -1,0 +1,30 @@
+{% extends 'accountlayout.html' %}
+{% block content %}
+
+	<h1>Welcome pID</h1>
+
+	<table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Passenger ID</th>
+        <th>Ticket Price</th>
+        <th>Balance</th>
+        <th>Transaction Time</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+    {% for block in details %}
+      <tr>
+        <td>{{ block[0] }}</td>
+        <td>{{ block[1] }}</td>
+        <td>{{ block[2] }}</td>
+        <td>{{ block[3] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  
+
+	
+
+{% endblock content %}

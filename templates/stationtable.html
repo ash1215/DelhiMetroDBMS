@@ -1,0 +1,60 @@
+{% extends "adminlayout.html" %}
+{% block content %}
+<div class="container mt-3">
+  <h2>Search Stations</h2>
+  <p>Type something in the input field to search the passenger id, name, date of birth, age or address:</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Station ID</th>
+        <th>Name</th>
+        <th>Parking Facility</th>
+        <th>Feeder Bus Service</th>
+        <th>Station count from Rithala</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+    {% for block in table %}
+      <tr>
+        <td>{{ block[0] }}</td>
+        <td>{{ block[1] }}</td>
+        <td>
+          {% if block[2]==1 %}
+          Available
+          {% else %}
+          Not Available
+          {% endif %}
+        </td>
+        <td>
+          {% if block[3]==1 %}
+          Available
+          {% else %}
+          Not Available
+          {% endif %}
+        </td>
+        <td>{{ block[4] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+
+  <a href="{{ url_for('addstation',adminID=adminID) }}">Add Station</a>
+  
+  
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+{% endblock script %}

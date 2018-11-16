@@ -4,19 +4,19 @@
 		<form method="POST" action="">
 			{{ form.hidden_tag() }}
 			<fieldset class="form-group">
-				<legend class="border-bottom mb-4">Log In</legend>
+				<legend class="border-bottom mb-4">Log In as Admin</legend>
 				
 				<div class="form-group">
-					{{ form.passengerID.label(class="form-control-label") }}
-					{% if form.passengerID.errors %}
-						{{ form.passengerID(class="form-control form-control-lg is-invalid") }}
+					{{ form.adminID.label(class="form-control-label") }}
+					{% if form.adminID.errors %}
+						{{ form.adminID(class="form-control form-control-lg is-invalid") }}
 						<div class="invalid-feedback">
-							{% for error in form.passengerID.errors %}
+							{% for error in form.adminID.errors %}
 								<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 					{% else %}
-						{{ form.passengerID(class="form-control form-control-lg") }}
+						{{ form.adminID(class="form-control form-control-lg") }}
 					{% endif %}
 				</div>
 				<div class="form-group">
@@ -41,7 +41,7 @@
 				{{ form.submit(class="btn btn-outline-info") }}
 			</div>
 			<small class="text-muted ml-2">
-				<a href="#">Forgot Password</a> | <a href="{{ url_for('Adminlogin') }}">Login as Admin</a>
+				<a href="#">Forgot Password</a>
 			</small>
 		</form>
 	</div>

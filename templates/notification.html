@@ -1,0 +1,43 @@
+{% extends "adminlayout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Post Notifications</legend>
+				
+				<div class="form-group">
+					{{ form.notify.label(class="form-control-label") }}
+					{% if form.notify.errors %}
+						{{ form.notify(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.notify.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.notify(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+			</fieldset>
+			<div class="form-group">
+				{{ form.post(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+
+
+
+	      <div class="content-section" style="overflow-y: scroll; height: 300px;">
+	        <h3>Notifications</h3>
+	        <p class='text-muted'>Look out for announcements and notifications from Delhi Metro Authority.
+	          <ul class="list-group">
+	          	{% for post in notification %}
+	          	<li class="list-group-item list-group-item-light">{{ post[1] }}</li>
+	          	{% endfor %}
+	          </ul>
+	        </p>
+	      </div>
+	    
+	
+{% endblock content %}

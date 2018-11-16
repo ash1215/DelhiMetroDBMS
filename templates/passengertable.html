@@ -1,0 +1,45 @@
+{% extends "adminlayout.html" %}
+{% block content %}
+<div class="container mt-3">
+  <h2>Search Passengers</h2>
+  <p>Type something in the input field to search the passenger id, name, date of birth, age or address:</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Passenger ID</th>
+        <th>Name</th>
+        <th>Date Of Birth</th>
+        <th>Age</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+    {% for block in table %}
+      <tr>
+        <td><a href="{{ url_for('passengerchange', passengerID=block[0]) }}">{{ block[0] }}</td>
+        <td>{{ block[1] }}</td>
+        <td>{{ block[2] }}</td>
+        <td>{{ block[3] }}</td>
+        <td>{{ block[4] }}, {{ block[5] }}, {{ block[6] }}-{{ block[7] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  
+  
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+{% endblock script %}

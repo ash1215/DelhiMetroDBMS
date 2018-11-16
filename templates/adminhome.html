@@ -1,0 +1,27 @@
+{% extends "adminlayout.html" %}
+{% block content %}
+	<h1>Welcome {{ title }}</h1>
+	<br>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="content-section" style="height: 200px; background-color: #5f788a">
+				<legend class="mb-4 text-center" style="color:white; top:50%; position: relative; transform: translate(0%, -50%);"><a href="{{ url_for('s_table', adminID=adminID) }}" class="nav-item nav-link" style="color:white;">Manage Stations</a></legend>			
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="content-section text-center" style="height: 200px;">
+				<legend class="mb-4 text-center" style=" top:50%; position: relative; transform: translate(0%, -50%);"><a href="{{ url_for('addstation', adminID=adminID) }}" class="nav-item nav-link" style="color:black">Add Station</a></legend>						
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="content-section" style="height: 200px;">
+				<legend class="mb-4 text-center" style="top:50%; position: relative; transform: translate(0%, -50%);"><a href="{{ url_for('p_table', adminID=adminID) }}" class="nav-item nav-link" style="color:black;">View Passengers</a></legend>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="content-section" style="height: 200px; background-color: #5f788a">
+				<legend class="mb-4 text-center" style="color:white; top:50%; position: relative; transform: translate(0%, -50%);"><a href="{{ url_for('notify', adminID=adminID) }}" class="nav-item nav-link" style="color:white;">Add Notifications</a></legend>			
+			</div>
+		</div>
+	</div>
+{% endblock content %}
